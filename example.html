@@ -1,0 +1,614 @@
+<!doctype html>
+	<html lang="en" dir="ltr">
+	<head>
+		<title>TwengaCarousel</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="assets/global.css" media="screen" />
+			<link rel="stylesheet" type="text/css" href="assets/twCarousel.css" media="screen" />
+			<script type="text/javascript" src="twCarousel.js"></script>
+
+	<script>
+		window.onload = function(){
+
+			/* Demo exemple 1 */
+			allnodeExample1 = twCarousel.getElementsByClassName(document.body,"example1");
+			twCarousel.carouselize({noeud:allnodeExample1});
+
+			/* Demo exemple 2 */
+			allnodeExample2 = twCarousel.getElementsByClassName(document.body,"example2");
+			twCarousel.carouselize({
+				noeud:allnodeExample2,
+				btNext:"arrowNext",
+				btPrev:"arrowPrev"
+			});
+
+			/* Demo exemple 3 */
+			allnodeExample3 = twCarousel.getElementsByClassName(document.body,"example3");
+			thumbnail3 = twCarousel.getElementsByClassName(document.body,"thumbs");
+			twCarousel.carouselize({
+				noeud:allnodeExample3,
+				thumbnail:thumbnail3
+			});
+
+			/* Démo exemple 4 */
+			allnodeExample4 = twCarousel.getElementsByClassName(document.body,"example4");
+			twCarousel.carouselize({
+				noeud:allnodeExample4,
+				timer:1000
+			});
+
+			/* Démo exemple 5 */
+			allnodeExample5 = twCarousel.getElementsByClassName(document.body,"example5");
+			thumbnail4 = twCarousel.getElementsByClassName(document.body,"thumbs2");
+			twCarousel.carouselize({
+				noeud:allnodeExample5,
+				thumbnail:thumbnail4,
+				thumbHover:1
+			});
+
+			/* Démo exemple 6 */
+			allnodeExample6 = twCarousel.getElementsByClassName(document.body,"example6");
+			twCarousel.carouselize({
+				noeud:allnodeExample6,
+				endRotation: 14000
+			});
+
+			/* Démo exemple 7 */
+			allnodeExample7 = twCarousel.getElementsByClassName(document.body,"example7");
+			thumbnail1 = twCarousel.getElementsByClassName(document.body,"thumbs1");
+			twCarousel.carouselize({
+				noeud:allnodeExample7,
+				thumbnail:thumbnail1,
+				btNext:"arrowNext0",
+				btPrev:"arrowPrev0",
+				interactStopAll: 1
+			});
+
+			/* Démo exemple 8 */
+			allnodeExample8 = twCarousel.getElementsByClassName(document.body,"example8");
+			twCarousel.carouselize({
+				noeud:allnodeExample8,
+				AnimFrequency:100,
+				AnimSplitdistance:2
+			});
+
+			/* Démo exemple 9 */
+			allnodeExample9 = twCarousel.getElementsByClassName(document.body,"example9");
+			thumbnail3 = twCarousel.getElementsByClassName(document.body,"thumbs3");
+			twCarousel.carouselize({
+				noeud:allnodeExample9,
+				thumbnail:thumbnail3,
+				btNext:"arrowNext1",
+				btPrev:"arrowPrev1",
+				compteur:"counterIndicator"
+			});
+
+		}
+	</script>
+
+<!--[if IE 6]>
+<script defer type="text/javascript" src="ressources/js/pngfix.js"></script>
+<![endif]-->
+
+</head>
+<body class="dossier">
+<!--[if IE 6]>
+<div id="ie6">
+<![endif]-->
+<!--[if IE]>
+<div id="ie">
+<![endif]-->
+
+
+<header>
+    <div class="header summary">
+        <p>
+           Showcase of TwCarousel, plugin javascript for a carousel.<br />
+           Its main interest is to <strong>not</strong> using the jQuery library !
+        </p>
+    </div>
+    
+    <a href="https://github.com/korvus/twCarousel">
+    	<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+    </a>
+
+</header>
+
+<div id="conteneur">
+	<div id="frame">
+		<div class="boxe">
+
+			<h2>twCarousel</h2>
+
+			<menu>
+				<li><a href="#part1">What is it?</a></a></li>
+				<li><a href="#part2">compatibility</a></li>
+				<li><a href="#part3">Simple example</a></li>
+				<li><a href="#part4">Options & Parameters</a></li>
+				<li><a href="#part5">Public functions in the plugin</a></li>
+				<li><a href="#part6">More examples</a></li>
+				<li><a href="#part7">Contact</a></li>
+			</menu>
+
+			<h2 id="part1">Carousel Plugin</h2>
+
+			<p>
+				<strong>twCarousel</strong> is a javascript carousel plugin that allow you to scroll some medias 
+				formated in an html list elements, pictures, text or whatever. His particularity is 
+				it's in pure javascript, concepted at the origins for replace the plugin 
+				<a target="_blank" href="http://jquery.malsup.com/cycle2/demo/carousel.php">Cycle</a>, during the 
+				suppression of the dependancy library, the famous jQuery. 
+				But in order to be efficient, the plugin keep only necessary functions matching for aim.
+			</p>
+
+			<h2 id="part2">Compatibility.</h2>
+
+			<p>
+				Usable and testable from ie7, firefox 23.0.1, Opéra 12.16, Safari 4.0.2 and Chrome 28.0.1500.95 m
+			</p>
+
+			<h2 id="part3">Using it.</h2>
+
+			<h3>Simple example :</h3>
+			<div id="example1">
+				<div class="example1"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example1"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example1"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example1"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example1"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+
+			<h3>Le HTML :</h3>
+				<pre>
+<span class="color0">&lt;div id="example1"&gt;</span>
+  <span class="color1">&lt;div class="example1"&gt;</span>
+	&lt;img width="100" height="36" alt="" src="assets/img/pic0.png" /&gt;
+  <span class="color1">&lt;/div&gt;</span>
+  <span class="color1">&lt;div class="example1"&gt;</span>
+	&lt;img width="100" height="36" alt="" src="assets/img/pic1.png" /&gt;
+  <span class="color1">&lt;/div&gt;</span>
+  <span class="color1">&lt;div class="example1"&gt;</span>
+	&lt;img width="100" height="36" alt="" src="assets/img/pic2.png" /&gt;
+  <span class="color1">&lt;/div&gt;</span>
+  <span class="color1">&lt;div class="example1"&gt;</span>
+	&lt;img width="100" height="36" alt="" src="assets/img/pic3.png" /&gt;
+  <span class="color1">&lt;/div&gt;</span>
+  <span class="color1">&lt;div class="example1"&gt;</span>
+	&lt;img width="100" height="36" alt="" src="assets/img/pic4.png" /&gt;
+  <span class="color1">&lt;/div&gt;</span>
+<span class="color0">&lt;/div&gt;</span>
+</pre>
+
+	<h3>Javascript :</h3>
+<pre>
+allnodeExample1 = twCarousel.getElementsByClassName(document.body,<span class="color1">"example1"</span>);
+twCarousel.carouselize({noeud:allnodeExample1});
+</pre>
+
+	<h3>CSS :</h3>
+		<pre>
+<span class="color0">#example1</span>{width:100px;height:45px;overflow:hidden;border:1px solid #555;}
+<span class="color1">.example1</span>{width:100px;}
+</pre>
+
+	<h3>Principes :</h3>
+	<ul>
+		<li>
+			For HTML structure, a wrap div <i>(#example1)</i> contain a child list of elements <i>(.example1)</i>.
+			This child list can include any kind of html element you want.
+		</li>
+		<li>
+			In javascript, after the script is call (&lt;script src="yourpath/twCarousel.js"&gt;&lt;/script&gt;)
+			the plugin est in the "twCarousel" object, having several methods, holding <span class="color1">getElementsByClassName</span> method,
+			allowing you to get and stock the list of child element you want to scroll.
+			You just have to pass the classname in parameter of "noeud" (french for node).
+		</li>
+		<li>
+			in CSS, you just have to put a fix value for width and height to the parent element, 
+			and it will be the "window" where elements will scroll.
+			Each child node should be have the same width, or it will outweight the window.
+		</li>
+	</ul>
+
+	<h2 id="part4">Options and parameters</h2>
+
+	<p>
+		There is enough parameters for deal interactions with a meter,
+		some thumbnails, arrows and some others.
+	</p>
+
+
+	<ul class="params">
+		<li>
+			<a>
+				<strong>noeud</strong> 
+				(Fr. for "node")- An object listing DOM node intended to scroll.
+			</a>
+		</li>
+		<li>
+			<a href="#thumbnails">
+				<strong>thumbnail</strong>
+				Object listing DOM node intended to be use as thumbnails.
+				An automatic class <i>"activeSlide"</i> is automaticaly affect to the focused element.
+			</a>
+		</li>
+		<li>
+			<a href="#thumbhover">
+				<strong>thumbHover</strong>
+				Boolean value for setting an event mouseover on the thumbnails.
+				thumbnail parameter should be previously set for this parameter work.
+			</a>
+		</li>
+		<li>
+			<a href="#endrotation">
+				<strong>endRotation</strong> 
+				Time in milliseconds until when rotation stop.
+				By default, animation never end.
+			</a>
+		</li>
+		<li>
+			<a href="#counter">
+				<strong>compteur</strong>
+				(fr. for counter in the sense meter)- 
+				String with the ID attribute where the current slide number will be display.
+			</a>
+		</li>
+		<li>
+			<a href="#prev_next">
+				<strong>btNext</strong>
+				String with the ID of the DOM node on user will engage action "next slide".
+			</a>
+		</li>
+		<li>
+			<a href="#prev_next">
+				<strong>btPrev</strong>
+				String with the ID of the DOM node on user will engage action "previous slide".
+			</a>
+		</li>
+		<li>
+			<a href="#timer">
+				<strong>timer</strong>
+				Time in milliseconds between two scroll actions. By default, set to 2000.
+			</a>
+		</li>
+		<li>
+			<a href="#interactionstopeverything">
+				<strong>interactStopAll</strong>
+				Boolean value for indicate if twCarousel should stop when user click 
+				on any of the user interfaces elements, including arrows or thumbnails.
+			</a>
+		</li>
+		<li>
+			<a href="#speedparams">
+				<strong>AnimFrequency</strong>
+				Time in milliseconds, wich is the frequency using for the elements scrolling.
+				By default, set to 30.
+			</a>
+		</li>
+		<li>
+			<a href="#speedparams">
+				<strong>AnimSplitdistance</strong>
+				Numerical value indicating distance in pixel, each slide doing during the 
+				animation in the time interval eventually setted just previoulsy (AnimFrequency).
+				By default, setted to 1 pixel.
+				This value is automaticaly auto increment during the animation, with 
+				1 pixel adding each interval time.
+			</a>
+		</li>
+	</ul>
+
+
+	<h2 id="part5">Functions added</h2>
+
+	<p>
+		For twCarousel work, some very useful functions similar to some jQuery ones has been added.
+		So, you can use it automaticaly in your project too if you include the twCarousel script.
+	</p>
+
+
+	<ul class="params">
+		<li>
+			<pre>twCarousel.getElementsByClassName = function(wrapNode, classname)</pre>
+			<ul>
+				<li><strong>wrapNode</strong> : 
+					the parent DOM object from search will be crawl (can be useful for avoiding to crawl the full DOM document).
+				</li>
+				<li><strong>classname</strong> : string of the classname you search.</li>
+				<li><strong>action</strong> : sent you the nodeDom object.</li>
+			</ul>
+		</li>
+		<li>
+			<pre>twCarousel.setCssAttribute = function(domNode, keyValue)</pre>
+			<ul>
+				<li><strong>domNode</strong> : domNode object you want to edit CSS.</li>
+				<li><strong>keyValue</strong> : a string containing the CSS couple key/value you want to use. For an example : "position:absolute;left:25px;"</li>
+				<li><strong>action</strong> : Will attribute this CSS to the DomNode you targeted, avoiding to clone property if some is already define online.</li>
+			</ul>
+		</li>
+		<li>
+			<pre>twCarousel.addClass = function(nodeToCheck, cl)</pre>
+			<ul>
+				<li><strong>nodeToCheck</strong> : domNode object you want to add a classname.</li>
+				<li><strong>cl</strong> : the string with classname you want.</li>
+				<li><strong>action</strong> : will add the classname on the nodeDom you targeted.</li>
+			</ul>
+		</li>
+		<li>
+			<pre>twCarousel.removeClass = function(nodeToCheck, cl)</pre> 
+			<ul>
+				<li><strong>nodeToCheck</strong> : target a nodeDom object you want to remove a class, and remove this class.</li>
+				<li><strong>cl</strong> : string with the classname to remove.</li>
+				<li><strong>action</strong> : Will remove the className from the node.</li>
+			</ul>
+		</li>
+		<li>
+			<pre>twCarousel.attachAnEvent = function(evName,NId,fnName)</pre>
+			<ul>
+				<li><strong>evName</strong> : 
+					String contening <a target="_blank" href="http://www.w3.org/TR/DOM-Level-3-Events/#event-definitions">DOM event</a> name. 
+					Ex : "mouseover". Warning, the compatibility cross browser is not manage, except for the click event.
+					It mean the difference "click"/"onclick" is manage, for others events, you have to be carreful or you can edit the plugin.</li>
+				<li><strong>NId</strong> : the ID string you will associate to the event.</li>
+				<li><strong>fnName</strong> : The function you will associate to the event.</li>
+				<li><strong>action</strong> : Will allow you to associate a domNode and an event, for making any function you want.</li>
+			</ul>
+		</li>
+		<li>
+			<pre>twCarousel.detachAnEvent = function(evName,NId,fnName)</pre>
+			<ul>
+				<li><strong>evName</strong> : A string with the event you want dissociate from a function you had previously associate with attachAnEvent.</li>
+				<li><strong>NId</strong> : The domNode oject you want to dissociate.</li>
+				<li><strong>fnName</strong> : The function name you want to dissociate from the event.</li>
+				<li><strong>action</strong> : Will allow you do dissociate an event from a domNode.</li>
+			</ul>
+		</li>
+	</ul>
+
+	<h2 id="part6">Examples</h2>
+
+	<div class="part" id="prev_next">
+		<p>With buttons for scrolling to next and previous.</p>
+		<div class="demo">
+			<div id="arrowPrev" class="arr"></div>
+			<div id="arrowNext" class="arr"></div>
+			<div class="windows" id="example2">
+				<div class="example example2"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example2"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example2"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example2"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example2"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+		</div>
+
+		<pre>
+allnodeExample2 = twCarousel.getElementsByClassName(document.body,"example2");
+twCarousel.carouselize({
+	noeud:allnodeExample2,
+	<span class="color1">btNext:"arrowNext",
+	btPrev:"arrowPrev"</span>
+});
+</pre>
+
+	</div>
+	<div class="part" id="timer">
+		<p>twCarousel with shorter show time for each slide.</p>
+		<div class="demo">
+			<div class="windows" id="example4">
+				<div class="example example4"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example4"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example4"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example4"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example4"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+		</div>
+
+		<pre>
+allnodeExample4 = twCarousel.getElementsByClassName(document.body,"example4");
+twCarousel.carouselize({
+	noeud:allnodeExample4,
+	<span class="color1">timer:1000</span>
+});
+</pre>
+
+	</div>
+	<div class="part" id="thumbnails">
+		<p>With thumbnails (you can click it by default)</p>
+		<div class="demo">
+			<div class="windows" id="example3">
+				<div class="example example3"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example3"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example3"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example3"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example3"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+			<div class="thumbnails">
+				<span class="thumbs c1" title="pic"></span>
+				<span class="thumbs c2" title="pic"></span>
+				<span class="thumbs c3" title="pic"></span>
+				<span class="thumbs c4" title="pic"></span>
+				<span class="thumbs c5" title="pic"></span>
+			</div>
+		</div>
+
+		<pre>
+allnodeExample3 = twCarousel.getElementsByClassName(document.body,"example3");
+<span class="color1">thumbnail3 = twCarousel.getElementsByClassName(document.body,"thumbs");</span>
+twCarousel.carouselize({
+	noeud:allnodeExample3,
+	<span class="color1">thumbnail:thumbnail3</span>
+});</pre>
+
+
+	</div>
+	<div class="part" id="thumbhover">
+		<p>With thumbnails (this time display in text) reacting to rollover</p>
+		<div class="demo">
+			<div class="windows" id="example5">
+				<div class="example example5"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example5"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example5"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example5"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example5"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+			<div class="thumbnails0">
+				<span class="thumbs2" title="Twenga">Twenga</span>
+				<span class="thumbs2" title="Tangou">Tangou</span>
+				<span class="thumbs2" title="Showcase">Showcase</span>
+				<span class="thumbs2" title="AffinitAd">AffinitAd</span>
+				<span class="thumbs2" title="AdExMachina">AdExMachina</span>
+			</div>
+		</div>
+
+		<pre>
+allnodeExample5 = twCarousel.getElementsByClassName(document.body,"example5");
+<span class="color0">thumbnail4 = twCarousel.getElementsByClassName(document.body,"thumbs2");</span>
+twCarousel.carouselize({
+	noeud:allnodeExample5,
+	<span class="color0">thumbnail:thumbnail4,</span>
+	<span class="color1">thumbHover:true</span>
+});
+</pre>
+	</div>
+	<div class="part" id="endrotation">
+		<p>With a timer ending twCarousel after 14 seconds.</p>
+		<div class="demo">
+			<div class="windows" id="example6">
+				<div class="example example6"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example6"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example6"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example6"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example6"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+		</div>
+		<pre>
+allnodeExample6 = twCarousel.getElementsByClassName(document.body,"example6");
+twCarousel.carouselize({
+	noeud:allnodeExample6,
+	<span class="color1">endRotation: 14000</span>
+});
+</pre>
+	</div>
+	<div class="part" id="interactionstopeverything">
+		<p>
+			After click on thumbnails or arrows, animation ending.
+		</p>
+		<div class="demo">
+			<div id="arrowPrev0" class="arr"></div>
+			<div id="arrowNext0" class="arr"></div>
+			<div class="windows" id="example7">
+				<div class="example example7"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example7"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example7"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example7"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example7"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+			<div class="thumbnails1">
+				<span class="thumbs1 c1" title="affinitAd"></span>
+				<span class="thumbs1 c5" title="Twenga"></span>
+				<span class="thumbs1 c2" title="Tangou"></span>
+				<span class="thumbs1 c3" title="Showcase"></span>
+				<span class="thumbs1 c4" title="AdExMachina"></span>
+			</div>
+		</div>
+		<pre>
+allnodeExample7 = twCarousel.getElementsByClassName(document.body,"example7");
+<span class="color0">thumbnail1 = twCarousel.getElementsByClassName(document.body,"thumbs1");</span>
+twCarousel.carouselize({
+	noeud:allnodeExample7,
+	<span class="color0">thumbnail:thumbnail1,
+	btNext:"arrowNext0",
+	btPrev:"arrowPrev0",</span>
+	<span class="color1">interactStopAll: true</span>
+});
+</pre>
+	</div>
+	<div class="part" id="speedparams">
+		<p>Exemple d'utilisation des paramètres AnimSplitdistance et AnimFrequency.</p>
+		<div class="demo">
+			<div class="windows" id="example8">
+				<div class="example example8"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example8"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example8"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example8"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example8"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+		</div>
+		<pre>
+allnodeExample8 = twCarousel.getElementsByClassName(document.body,"example8");
+twCarousel.carouselize({
+	noeud:allnodeExample8,
+	<span class="color1">AnimFrequency:100,
+	AnimSplitdistance:2</span>
+});
+</pre>
+	</div>
+	<div class="part" id="counter">
+		<p>
+			Example with counter, displaying the current active slide.</p>
+		<div class="demo">
+			<div id="arrowPrev1" class="arr"></div>
+			<div id="arrowNext1" class="arr"></div>
+			<div class="windows" id="example9">
+				<div class="example example9"><img width="100" height="21" alt="" src="assets/img/pic0.png" /></div>
+				<div class="example example9"><img width="100" height="45" alt="" src="assets/img/pic1.png" /></div>
+				<div class="example example9"><img width="100" height="16" alt="" src="assets/img/pic2.png" /></div>
+				<div class="example example9"><img width="100" height="29" alt="" src="assets/img/pic3.png" /></div>
+				<div class="example example9"><img width="100" height="36" alt="" src="assets/img/pic4.png" /></div>
+			</div>
+			<div class="thumbnails2">
+				<span class="thumbs3 c1" title="Twenga"></span>
+				<span class="thumbs3 c2" title="Tangou"></span>
+				<span class="thumbs3 c3" title="Showcase"></span>
+				<span class="thumbs3 c4" title="AffinitAd"></span>
+				<span class="thumbs3 c5" title="AdExMachina"></span>
+			</div>
+			<div class="compteur">
+				<div class="color1" id="counterIndicator">1</div>/5
+			</div>
+		</div>
+		<pre>
+allnodeExample9 = twCarousel.getElementsByClassName(document.body,"example9");
+thumbnail3 = twCarousel.getElementsByClassName(document.body,"thumbs3");
+twCarousel.carouselize({
+	noeud:allnodeExample9,
+	thumbnail:thumbnail3,
+	btNext:"arrowNext1",
+	btPrev:"arrowPrev1",
+	<span class="color1">compteur:"counterIndicator"</span>
+});
+</pre>
+	</div>
+
+	<h2 id="part7">About</h2>
+
+	<div class="part">
+		<a href="mailto:ertel.simon@gmail.com">contact me</a><br />
+		<a target="_blank" href="https://github.com/korvus">github account</a><br />
+		<a target="_blank" href="twenga.com">Twenga</a><br />
+		<a target="_blank" href="http://simonertel.net">Simon Ertel</a>
+	</div>
+
+
+<!-- = Fin boxe ======================================================== -->
+		</div>
+
+	</div>
+
+
+</div>
+
+	<footer>
+		<div class="footer">
+		</div>
+	</footer>
+
+<!--[if IE 6]>
+</div>
+<![endif]-->
+<!--[if IE ]>
+</div>
+<![endif]-->
+
+
+</body>
+</html>

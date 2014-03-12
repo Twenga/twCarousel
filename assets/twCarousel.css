@@ -1,0 +1,58 @@
+.part{position:relative;margin:0 0 120px 0;overflow:hidden;}
+.part .demo{float:left;width:200px;position:relative;}
+.boxe pre{overflow-y:auto;overflow-x:auto;height:auto;padding:10px 0 10px 3px;margin-left:10px;margin-top:0;}
+.part pre{float:left;width:404px;}
+
+.boxe p,
+.boxe ul{padding:0 0 10px 0;}
+.boxe h3{margin-top:40px;}
+
+.boxe .color0{color:#00f;}
+.boxe .color1{color:#f00;}
+.params a{color:#000;text-decoration:none;}
+.params li{list-style-type:none;margin-bottom:20px;}
+.params strong{margin:0;text-decoration:underline;}
+.params li li{margin-bottom:0px;}
+.params li li strong{display:inline;text-decoration:none;}
+
+/* Example 1 */
+#example1{width:100px;height:45px;overflow:hidden;border:1px solid #555;}
+.example1{width:100px;}
+
+/* general */
+.windows{width:100px;height:45px;overflow:hidden;margin:0 auto;border:1px solid #ccc;}
+.example{width:100px;}
+
+/* Example 2 */
+.arr{position:absolute;top:13px;width:1px;height:0px;border:0;border-right:10px solid #000;border-top:10px solid transparent;border-bottom:10px solid transparent;cursor:pointer;}
+#arrowNext{right:18px;border-left:10px solid #000;border-right:10px solid transparent;}
+#arrowPrev{left:27px;}
+
+/* Example 3 */
+.thumbnails{margin:10px 0 0 45px;}
+.thumbnails span{float:left;width:10px;height:10px;margin:0 6px;cursor:pointer;}
+.c1{background:#f00;}
+.c2{background:#0f0;}
+.c3{background:#00f;}
+.c4{background:#f0f;}
+.c5{background:#0ff;}
+
+/* Example 5 */
+.thumbnails0{margin:10px 0 0 45px;}
+.thumbnails0 span{display:block;width:100px;height:23px;line-height:23px;margin:0 6px;cursor:pointer;text-align:center;white-space:nowrap;}
+
+
+/* Example 7 */
+.thumbnails1{margin:10px 0 0 45px;}
+.thumbnails1 span{float:left;width:10px;height:10px;margin:0 6px;cursor:pointer;}
+#arrowNext0{right:18px;border-left:10px solid #000;border-right:10px solid transparent;}
+#arrowPrev0{left:27px;}
+
+
+/* Example 9 */
+.thumbnails2{margin:10px 0 0 45px;}
+.thumbnails2 span{float:left;width:10px;height:10px;margin:0 6px;cursor:pointer;}
+#arrowNext1{right:18px;border-left:10px solid #000;border-right:10px solid transparent;}
+#arrowPrev1{left:27px;}
+.compteur{padding:20px 0 0 0;overflow:hidden;display:block;clear:both;font-size:20px;}
+#counterIndicator{float:left;font-weight:bold;margin:0 0 0 50px;}
